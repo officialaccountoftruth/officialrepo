@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Official Declaration of Affection</title>
+  <meta name="description" content="An official government-style certificate stating: I love you more." />
+  <meta name="theme-color" content="#0a3d62" />
+  <style>
+    :root{
+      --ink:#1a1a1a;
+      --bg:#f9f9f9;
+      --border:#2c3e50;
+      --accent:#0a3d62;
+      --seal:#b71c1c;
+    }
+    html,body{height:100%; margin:0;}
+    body{
+      font-family: "Times New Roman", serif;
+      background:var(--bg);
+      color:var(--ink);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .certificate{
+      background:white;
+      border:4px solid var(--border);
+      width:min(900px, 92vw);
+      padding:50px;
+      border-radius:8px;
+      box-shadow:0 0 0 12px white, 0 0 0 16px var(--border);
+      position:relative;
+    }
+    h1{
+      text-align:center;
+      font-size:40px;
+      text-transform:uppercase;
+      margin-bottom:10px;
+    }
+    h2{
+      text-align:center;
+      font-size:22px;
+      margin-top:0;
+      margin-bottom:40px;
+      font-weight:normal;
+    }
+    .seal{
+      position:absolute;
+      top:273px; left:50%; transform:translateX(-50%);
+      width:100px; height:100px; border-radius:50%;
+      background:var(--seal);
+      color:white; display:flex; align-items:center; justify-content:center;
+      font-size:40px; font-weight:bold;
+      border:6px double white;
+      box-shadow:0 0 0 4px var(--seal);
+    }
+    .content{
+      font-size:20px; line-height:1.6; text-align:justify;
+    }
+    .names{
+      margin:40px 0;
+      display:flex; justify-content:space-between;
+    }
+    .sig{
+      width:40%; text-align:center;
+    }
+    .sig img{
+      max-height:80px; display:block; margin:0 auto 10px;
+    }
+    .sig span{
+      display:block; border-top:1px solid #333; padding-top:8px;
+    }
+    footer{
+      text-align:center; font-size:14px; margin-top:30px; color:#444;
+    }
+  </style>
+</head>
+<body>
+  <main class="certificate" role="main">
+    <div class="seal">★</div>
+    <h1>Certificate of Declaration</h1>
+    <h2>Issued by the Department of Undeniable Truths</h2>
+    <div class="content">
+      <p>
+        This certifies that the undersigned does solemnly declare and affirm, with full authority and sincerity,
+        that <strong>I love you more</strong>. This declaration shall remain true and binding at all times, without exception.
+      </p>
+    </div>
+    <div class="names">
+      <div class="sig">
+        <img src="sam2.png" alt="Authorized Signatory Signature" id="sigAuth" />
+        <span>Authorized Signatory</span>
+      </div>
+      <div class="sig">
+        <img src="eve.png" alt="Recipient Signature" id="sigRecip" />
+        <span>Recipient</span>
+      </div>
+    </div>
+    <footer>
+      Issued on <time id="issued"></time><br>
+      Official Record — Archive No. <span id="record"></span>
+    </footer>
+  </main>
+
+  <script>
+    const issued = document.getElementById('issued');
+    const record = document.getElementById('record');
+    const now = new Date();
+    issued.textContent = now.toLocaleDateString(undefined, { year:'numeric', month:'long', day:'numeric' });
+    record.textContent = Math.floor(Math.random()*1e9);
+  </script>
+</body>
+</html>
